@@ -138,6 +138,21 @@ nav {
 		margin-bottom: -40px;
 		z-index: -5;
 	}
+	
+	nav.static:before,
+	nav.static:after {
+		display: none;
+	}
+
+#pseudonav {
+	display: none;
+	height: 53px;
+	background: #28ce77;
+}
+
+	#pseudonav.static {
+		display: block;
+	}
 
 /* @end */
 
@@ -186,7 +201,7 @@ section {
 	    clear: both;
 	}
 
-	section:nth-child(odd) {
+	section:nth-child(even) {
 		background: #28ce77;
 	}
 	
@@ -239,13 +254,15 @@ section {
 		
 		.nivo-controlNav img {
 			display: inline; /* Unhide the thumbnails */
-			position: relative;
-			margin: 0 10px;
+			float: left;
+			position: static;
+			margin: 2px 10px;
 			border: 3px solid #0a361f;
 		}
 		
 		.nivo-controlNav .active img {
 			border-width: 5px;
+			margin: 0 8px;
 		}
 	
 	/* @end */

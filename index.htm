@@ -9,6 +9,10 @@
 	<link rel="stylesheet" href="css/normalize.css" />
 	<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/main.css" />
+	
+	
+	<!-- live reload -->
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js"></' + 'script>')</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -27,6 +31,8 @@
 				<li><a href="#contact">contact us</a></li>
 			</ul>
 		</nav>
+		
+		<div id="pseudonav" class=""></div>
 		
 		<section id="we">
 			<div class="block">
@@ -182,29 +188,28 @@
 	<script type="text/javascript">
 		$(window).load(function() {
 		    $('#gallery').nivoSlider({
-		    	effect: 'sliceDown',
-		    	pauseTime: 6000,
-		    	controlNavThumbs: true
-		    });
-		    $('#fgallery').nivoSlider({
-		    	effect: 'sliceDown',
+		    	animSpeed: '150',
+		    	effect: 'fade',
 		    	pauseTime: 6000,
 		    	controlNavThumbs: true
 		    });
 		});
 		
 		$(window).ready(function() {
-			$('#navigation').localScroll();
+			$('#navigation').localScroll({
+				hash: true
+			});
 			$.localScroll.hash();
 		});
 		
 		//documented at http://www.derekallard.com/blog/post/conditionally-sticky-sidebar
 		window.onscroll = function() { //122
 			if( window.XMLHttpRequest ) { // IE 6 doesn't implement position fixed nicely...
-				if (document.documentElement.scrollTop > 122 || self.pageYOffset > 122) {
-					$('#navigation').addClass('static');
+				if (document.documentElement.scrollTop > 123 || self.pageYOffset > 123) {
+					$('#navigation, #pseudonav').addClass('static');
+					
 				} else {
-					$('#navigation').removeClass('static');				 
+					$('#navigation, #pseudonav').removeClass('static');				 
 				}
 			}
 		}
