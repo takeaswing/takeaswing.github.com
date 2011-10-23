@@ -6,7 +6,7 @@
  * Nav:				1b8f52
  * 
  * Accent BG: 		28ce77
- * NonAccent BG: 	fff
+ * NonAccent BG: 	49976e
  *
  * Border:			0a361f
  *
@@ -170,6 +170,7 @@ h7 {
 h1 {
 	font-size: 40px;
 	line-height: 48px;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 h2 {
@@ -186,7 +187,7 @@ h3 {
 /* @group Section */
 
 section {
-	padding: 24px 20px;
+	padding: 48px 20px;
 	zoom: 1;
 }
 
@@ -202,11 +203,16 @@ section {
 	}
 
 	section:nth-child(even) {
-		background: #28ce77;
+		background: url('../img/texture.png') repeat left top, url('../img/ribbon-top.png') repeat-x left bottom #28ce77;
+	}
+	
+	section:nth-child(odd) {
+		background: url('../img/texture.png') repeat left top, url('../img/ribbon-bottom.png') repeat-x left bottom #49976e;
 	}
 	
 	section:last-child {
 		padding: 0;
+		background: url('../img/texture.png') repeat left top #28ce77;
 	}
 	
 	section .block:last-child {
@@ -317,17 +323,20 @@ section {
 			margin: 24px 0 24px -3px;
 			padding: 0 10px;
 			width: 754px;
+			height: auto;
 		}
 		
 			.eventer .main {
 				width: 510px;
 				float: left;
+				height: auto;
 			}
 		
 			.eventer aside {
 				background: #19824b;
 				width: 200px;
 				float: right;
+				height: auto;
 			}
 			
 			/* Micro Clearfix */
