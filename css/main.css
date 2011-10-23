@@ -13,38 +13,73 @@
  */
 
 html {
-	font-size: 140%;
+	font-size: 100%;
 	-webkit-font-smoothing: antialiased;
 }
 
 body {
-	background: #19824b url('../img/bg-stripe.png');
-	
-	color: #333;
-	
 	margin: 0 auto;
 	height: 100%;
 	width: 960px;
 	
-	font-family: 'Podkova';	
+	background: #19824b;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,.7))),  url('../img/bg-stripe.png');
+	
+	color: #333;
+	font: 16px/24px 'Podkova';
 }
 
 #wrapper {	
+	margin: 0;
+	padding: 0;
+	
 	background: white;
 	border: 3px solid #0a361f;
 	border-top: 0;
-	
-	padding: 20px 0;
 }
 
+/* @group Rewrite */
+
+header {
+	text-align: center;
+}
+	
+	header h1 {
+		color: #14693c;
+		font: 60px Arvo;
+		margin: 0 0 5px;
+	}
+	
+	header h2 {
+		color: #14693c;
+		font: 30px Arvo;
+		margin: 0 0 4px;
+	}
+	
+	.block-shadow {
+		text-shadow: 3px 3px 0 #28ce77;
+	}
+
+/* @end */
+
+/* @group Navigation */
+
 nav {
+	margin: 0 -20px;
+	
 	background: #1b8f52;
 	border: 3px solid #0a361f;
 	
 	text-align: center;
-	
-	margin: 0 -20px;
+	z-index: 10;
 }
+	
+	nav.static {
+		position: fixed;
+		top: 0;
+		width: 989px;
+		margin: 0 0 0 -20px;
+	}
 	
 	nav ul {
 		margin: 0;
@@ -56,49 +91,90 @@ nav {
 			margin: 0 2px;
 		}
 		
-			nav li a {
+			nav li a,
+			nav li a:visited {
+				padding: 0 20px;
+				
 				color: #333;
 				font-size: 24px;
-				
-				padding: 0 20px;
+				text-decoration: none;
 			}
 			
 			nav li a:hover {
 				color: white;
-				text-decoration: none;
 			}
-
-.triangle-l,
-.triangle-r {
-	position: relative;
-	height:0px;
-	width:0px;
-	z-index: -1;
 	
-	border-style:solid;
-	border-width:20px;
-}
-	
-	.triangle-l {
-		margin-bottom: -20px;
-		top: -20px;
-		left: -39px;
+	/* Triangles */
+	nav:before {
+		content: "";
+		display: block;
+		height: 0;
+		width: 0;
 		
+		border-width: 20px;
+		border-style: solid;
 		border-color: transparent #0a361f transparent transparent;
+		
+		position: relative;
+		top: 27px;
+		left: -22px;
+		margin-bottom: -40px;
+		z-index: -5;
 	}
 	
-	.triangle-r {
-		margin-bottom: -60px;
-		top: -40px;
-		right: -953px;
+	nav:after {
+		content: "";
+		display: block;
+		height: 0;
+		width: 0;
 		
+		border-width: 20px;
+		border-style: solid;
 		border-color: transparent transparent transparent #0a361f;
+		
+		position: relative;
+		left: 970px;
+		top: -17px;
+		margin-bottom: -40px;
+		z-index: -5;
 	}
+
+/* @end */
+
+/* @group Headers */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+h7 {
+	margin: 0;
+}
+
+h1 {
+	font-size: 40px;
+	line-height: 48px;
+}
+
+h2 {
+	font-size: 30px;
+	line-height: 48px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+/* @end */
+
+/* @group Section */
 
 section {
 	padding: 24px 20px;
 	zoom: 1;
 }
+
 	/* Micro Clearfix */
 	section:before,
 	section:after {
@@ -117,33 +193,147 @@ section {
 	section:last-child {
 		padding: 0;
 	}
+	
+	section .block:last-child {
+		padding-left: 10px;
+	}
+
+/* @end */
 
 .block {
 	float: left;
-	padding: 0;
-	width: 440px;
-}
-	
-	section .block:last-child {
-		padding-left: 20px;
-	}
-
-.eventer {
-	list-style: none;
-	padding: 0 80px;
+	width: 450px;
 }
 
-	.eventer li {
-		background: #28ce77;
-		border: 3px solid;
-		
-		margin: 24px 0 24px -3px;
-		padding: 0 10px;
-		width: 754px;
+/* @group Section Specific Content */
+
+	/* @group We Do */
+	
+	.nivoSlider {
+	    position:relative;
+	    width:450px; /* Change this to your images width */
+	    height:338px; /* Change this to your images height */
+	    background:url(images/loading.gif) no-repeat 50% 50%;
+	    
+	    margin-bottom: 100px;
+	    
+	    border: 3px solid #0a361f;
 	}
 	
-		.eventer aside {
-			background: #19824b;
-			width: 200px;
-			float: right;
+		.nivoSlider img {
+		    position:absolute;
+		    top:0px;
+		    left:0px;
+		    display:none;
 		}
+		.nivoSlider a {
+		    border:0;
+		    display:block;
+		}
+		
+		.nivo-controlNav {
+			position: relative;
+			top: 360px;
+			text-align: center;
+		}
+		
+		.nivo-controlNav img {
+			display: inline; /* Unhide the thumbnails */
+			position: relative;
+			margin: 0 10px;
+			border: 3px solid #0a361f;
+		}
+		
+		.nivo-controlNav .active img {
+			border-width: 5px;
+		}
+	
+	/* @end */
+	
+	/* @group Partners */
+	/* @end */
+	
+	/* @group Meet Us */
+	
+	.team {
+		list-style: none;
+		padding: 0;
+	}
+	
+		.job {
+			color: #1b8c51;
+		}
+		
+			.job:before {
+				content: " – ";
+			}
+			
+		.team img {
+			float: left;
+			padding: 0 20px 20px 0;
+		}
+	
+		.team li:before,
+		.team li:after {
+			content: "";
+			display: table;
+		}
+		
+		
+		.team li:after {
+			clear: both;
+		}
+	
+	/* @end */
+	
+	/* @group Help Out */
+	
+	.eventer {
+		list-style: none;
+		padding: 0 80px;
+	}
+	
+		.eventer li {
+			background: #28ce77;
+			border: 3px solid;
+			
+			margin: 24px 0 24px -3px;
+			padding: 0 10px;
+			width: 754px;
+		}
+		
+			.eventer .main {
+				width: 510px;
+				float: left;
+			}
+		
+			.eventer aside {
+				background: #19824b;
+				width: 200px;
+				float: right;
+			}
+			
+			/* Micro Clearfix */
+			.cf:before,
+			.cf:after {
+			    content: "";
+			    display: table;
+			}
+			
+			.cf:after {
+			    clear: both;
+			}
+	
+	/* @end */
+
+/* @end */
+
+footer {
+	background: white;
+	border: 3px solid #0a361f;
+	border-top: 0;
+	padding: 10px 20px;
+	margin: 0 auto 500px;
+	text-align: center;
+	width: 800px;
+}

@@ -4,19 +4,21 @@
 	<meta charset="UTF-8">
 	<title>Take A Swing Tennis</title>
 
-	<link href='http://fonts.googleapis.com/css?family=Podkova' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Podkova+Arvo' rel='stylesheet' type='text/css'>
 	
-	<link rel="stylesheet" href="css/normalize.css" />	
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 	<div id="wrapper">
 		<header>
-			<img src="img/ball.png" alt="TODO" />
+<!--			<img src="img/ball.png" alt="TODO" />-->
 			<h1 class="block-shadow">Take A Swing</h1>
+			<h2 class="block-shadow">all for tennis, tennis for all.</h2>
 		</header>
 		
-		<nav>
+		<nav id="navigation" class="">
 			<ul>
 				<li><a href="#we">we do</a></li>
 				<li><a href="#partners">partners</a></li>
@@ -25,14 +27,12 @@
 				<li><a href="#contact">contact us</a></li>
 			</ul>
 		</nav>
-		<div class="triangle-l"></div>
-		<div class="triangle-r"></div>
 		
 		<section id="we">
 			<div class="block">
 				<h1>Awesome Tennis Instruction.</h1>
 				<p>
-					we love teaching tennis: what better way
+					we love everything about tennis: what better way
 					to share our love than to teach it?
 				</p>
 				<p>
@@ -41,7 +41,12 @@
 			</div>
 			
 			<aside class="block">
-				<!-- TODO gallery -->
+				<div id="gallery" class="nivoSlider">
+					<img src="temp/bounce.jpg" alt="Thus spoke Zarusthra" />
+					<img src="temp/breather.jpg" alt="" />
+					<img src="temp/ready.jpg" alt="" />
+					<img src="temp/lineup.jpg" alt="" />
+				</div>
 			</aside>
 		</section>
 		
@@ -60,10 +65,10 @@
 			
 			<div class="block">
 				<h2>Our Board</h2>
-				<ul>
+				<ul class="team">
 					<li>
 						<h3>John Doe <span class="job">Board Chair</span></h3>
-						<img src="" alt="" />
+						<img src="http://placehold.it/100x100" alt="" />
 						<p>
 							I've been playing tennis since, well, forever! I love
 							the game, so Take A Swing is a natural extension of my
@@ -72,7 +77,7 @@
 					</li>
 					<li>
 						<h3>Ben Stolovitz <span class="job">VP of PR</span></h3>
-						<img src="" alt="" />
+						<img src="http://placehold.it/100x100" alt="" />
 						<p>
 							I've been playing tennis since, well, forever! I love
 							the game, so Take A Swing is a natural extension of my
@@ -104,31 +109,37 @@
 			
 			<ul class="eventer">
 				<li>
-					<h2>Donate</h2>
-					<h3>Your contribution is insanely great!</h3>
-					<p>
-					Seriously, the tiniest contribution gives us enough money to
-					feed our junior board members. They love it when they get fed!
-					</p>
+					<div class="main">
+						<h2>Donate</h2>
+						<h3>Your contribution is insanely great!</h3>
+						<p>
+						Seriously, the tiniest contribution gives us enough money to
+						feed our junior board members. They love it when they get fed!
+						</p>
+					</div>
 					<aside>
 						<input type="text" name="" id="" placeholder="15.00"/>
 						<input type="submit" value="TODO" />
 						<p>we use PayPal!</p>
 					</aside>
+					<div class="cf"></div>
 				</li>
 				
 				<li>
-					<h2>Donate</h2>
-					<h3>We'd love you out here with us!</h3>
-					<p>
-					Our events are quite literally "all hands on deck" affairs.
-					If you can help us out with some of your time, we'll smother
-					you in hugs.
-					</p>
+					<div class="main">
+						<h2>Donate</h2>
+						<h3>We'd love you out here with us!</h3>
+						<p>
+						Our events are quite literally "all hands on deck" affairs.
+						If you can help us out with some of your time, we'll smother
+						you in hugs.
+						</p>
+					</div>
 					<aside>
 						<input type="submit" value="Register TODO" />
 						<p>or just call us</p>
 					</aside>
+					<div class="cf"></div>
 				</li>
 			</ul>
 		</section>
@@ -163,5 +174,40 @@
 		<p>Content copyright &copy; 2011 Take A Swing Tennis, Inc. All Rights Reserved. </p>
 		<p>Theme copyright &copy; 2011 Ben Stolovitz. Some Rights Reserved.</p>
 	</footer>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+	<script src="js/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+	<script src="js/jquery.localscroll-1.2.7-min.js" type="text/javascript"></script>
+	<script src="js/jquery.scrollTo-1.4.2-min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+		    $('#gallery').nivoSlider({
+		    	effect: 'sliceDown',
+		    	pauseTime: 6000,
+		    	controlNavThumbs: true
+		    });
+		    $('#fgallery').nivoSlider({
+		    	effect: 'sliceDown',
+		    	pauseTime: 6000,
+		    	controlNavThumbs: true
+		    });
+		});
+		
+		$(window).ready(function() {
+			$('#navigation').localScroll();
+			$.localScroll.hash();
+		});
+		
+		//documented at http://www.derekallard.com/blog/post/conditionally-sticky-sidebar
+		window.onscroll = function() { //122
+			if( window.XMLHttpRequest ) { // IE 6 doesn't implement position fixed nicely...
+				if (document.documentElement.scrollTop > 122 || self.pageYOffset > 122) {
+					$('#navigation').addClass('static');
+				} else {
+					$('#navigation').removeClass('static');				 
+				}
+			}
+		}
+	</script>
 </body>
 </html>
