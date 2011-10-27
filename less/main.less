@@ -1,0 +1,188 @@
+/* @group HTML5 */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+/* @end */
+
+/* @group Style */
+
+@classicBG: #19824b;
+
+@wrapperBorder: #0a361f;
+@textureURL: '../img/texture.png';
+
+@headerBG: #66ce98;
+@headerText: #14693c;
+@headerShadow: #62faa0;
+
+@navBG: #1b8f52;
+
+@weBG: #28ce77;
+
+@partnersBG: #4a976f;
+
+body {
+	background-color: @classicBG;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,.7))), url('../img/bg-stripe.png');
+	font: 20px Podkova;
+}
+
+#wrapper,
+footer {
+	background: white; /* should not be seen */
+	border: 3px solid @wrapperBorder;
+}
+
+header {
+	background-color: @headerBG;
+	background-image: url(@textureURL), url('../img/header-nav-ribbon.png');
+	
+	h1 {
+		color: @headerText;
+		font: 90px bold, Arvo;
+		text-shadow: 3px 3px @headerShadow;
+	}
+}
+
+nav {
+	background-color: @navBG;
+	background-image: url(@textureURL);
+	border-bottom: 3px solid @wrapperBorder;
+	
+	font-size: 32px;
+	
+	a {	color: @wrapperBorder; 
+		&:hover { color: white; }
+	}
+}
+
+#we {
+	background-color: @weBG;
+	background-image: url(@textureURL), url('../img/we-team-ribbon.png');
+}
+
+#partners {
+	background-color: @partnersBG;
+	background-image: url(@textureURL)/*, url('../img/we-team-ribbon.png')*/;	
+}
+
+/* @end */
+
+/* @group Headers */
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+	padding: 0;
+	
+	text-shadow: 0 1px 0 white;
+}
+
+/* @end */
+
+/* @group Generic Layout */
+
+html {
+	font-size: 100%;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+}
+
+#wrapper,
+footer {
+	border-top: 0;
+	
+	margin: 0 auto;
+	width:  960px;
+}
+	
+	footer {
+		margin-bottom: 200px;
+		text-align: center;
+		width: 700px;
+	}
+
+header,
+section,
+nav {
+	background-position: bottom left;
+	background-repeat: repeat, repeat-x;
+	padding: 20px;
+}
+
+	nav {
+		padding: 0 20px;
+		text-align: center;
+		z-index: 10;
+		
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+			
+			a {
+				display: block;
+				padding: 10px 20px;
+				text-decoration: none;
+			}
+		}
+		
+		&.static {
+			position: fixed;
+			top: 0;
+			width: 920px;
+		}
+	}
+	
+	#pseudonav {
+		background: red;
+		display: none;
+		position: static;
+		height: 55px;
+		width: 960px;
+		
+		&.static {
+			display: block;
+		}
+	}
+	
+/* @end */
