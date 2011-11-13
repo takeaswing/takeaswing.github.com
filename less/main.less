@@ -1,6 +1,7 @@
 
-/* @group Colors */
+/* @group Base Styles */
 
+/* @group Colors */
 @classicBG: #19824b;
 
 @wrapperBorder: #0a361f;
@@ -22,12 +23,20 @@
 @helpBG: #4a976f;
 @eventerMainBG: #28ce77;
 @eventerSideBG: #19824b;
+@eventerDeemph: #105230;
 
 @contactBG: #28ce77;
 
-/* @end */
+@submitBG: #e3f01d;
+@submitColor: #869800;
+@submitActive: #D0DB29;
+@submitHover: #F1FF1E;
 
-/* @group Headers */
+g {
+	/* N/A; used to get Espresso to list classes correctly */
+}
+
+/* @end */
 
 h1,
 h2,
@@ -53,13 +62,12 @@ h2 {
 }
 
 h3 {
-	font-size: 30px;
+	font-size: 25px;
 }
 
 h4 {
 	font-size: 28px;
 }
-/* @end */
 
 hr {
 	border: 0;
@@ -77,6 +85,8 @@ li {
 	padding-bottom: 10px;
 }
 
+/* @end */
+
 /* @group Generic Layout */
 
 html {
@@ -89,8 +99,10 @@ html {
 body {
 	background-color: @classicBG;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,.7))), url('../img/bg-stripe.png');
+	
 	font: 20px Podkova;
 	line-height: 1.5;
+	
 	margin: 0;
 }
 
@@ -106,7 +118,7 @@ footer {
 }
 	
 	footer {
-		margin-bottom: 200px;
+		margin-bottom: 300px;
 		text-align: center;
 		width: 700px;
 	}
@@ -114,11 +126,15 @@ footer {
 header,
 section,
 nav {
-	background-position: bottom left;
+	background-position: top left, bottom left;
 	background-repeat: repeat, repeat-x;
 	padding: 20px;
 }
 
+	section {
+		padding: 60px 20px;
+	}
+	
 	.block {
 		width: 440px;
 		margin: 0;
@@ -129,7 +145,7 @@ nav {
 	nav {
 		padding: 0 20px;
 		text-align: center;
-		z-index: 10;
+		z-index: 30;
 		
 		ul {
 			margin: 0;
@@ -142,8 +158,7 @@ nav {
 			padding: 0;
 			
 			a {
-				display: block;
-				padding: 10px 20px;
+				padding: 5px 20px;
 				text-decoration: none;
 			}
 		}
@@ -159,7 +174,7 @@ nav {
 		background: @weBG;
 		display: none;
 		position: static;
-		height: 55px;
+		height: 50px;
 		width: 960px;
 		
 		&.static {
@@ -212,9 +227,13 @@ nav {
 	
 	font-size: 32px;
 	
-	a {	color: @wrapperBorder; 
+	a, 
+	a:visited {	
+		color: @wrapperBorder; 
 		&:hover { color: white; }
 	}
+		&.static .active a { color: white; }
+		.active a { color: @wrapperBorder; }
 }
 	
 #we {
@@ -233,6 +252,8 @@ nav {
 }
 
 	.team {
+		padding: 0;
+		
 		img {
 			float: left;
 			padding: 7px 10px 10px 0;
@@ -260,47 +281,104 @@ nav {
 	.eventer {
 		
 		li {
-			width: 760px;
+			width: 754px;
 			margin: 20px 90px;
 			padding: 0;
+			background: url('../img/eventer-arrow.png') no-repeat 488px center, url('../img/eventer-bg.png') repeat-y left;
 			border: 3px solid @wrapperBorder;
 			height: auto;
 		}
 		
 			.main {
 				float: left;
-				width: 440px;
-				background: @eventerMainBG;
-				border-right: 1px solid @wrapperBorder;
+				width: 448px;
+/*				background: @eventerMainBG;*/
+/*				border-right: 1px solid @wrapperBorder;*/
 				padding: 20px;
 				height: auto;
 			}
 			
-			aside {
-				width: 259px;
-				float: left;
-				background: @eventerSideBG;
-				padding: 10px;
-				height: auto;
-			}
+				p {
+					color: @eventerDeemph;
+					margin: 0;
+				}
 			
-				input[type=text] {
-					border: 3px solid @wrapperBorder;
-					display: inline-block;
-					width: 230px;
-					font-size: 50px;
+			aside {
+				width: 245px;
+				float: left; 
+				padding: 85px 10px 10px;
+				height: auto;
+				
+				p {
+					text-align: center;
+				}
+			}
 					
-					&:before {
-						content: "$";
-						background: red;
-						height: 20px;
-						width: 20px;
-						display: block;
+				input[type=submit] {
+					display: inline-block;
+					background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
+					border: 3px solid @wrapperBorder;
+					color: #869800;
+					height: 59px;
+					margin: 0 0 0 15px;
+					float: left;
+					padding-right: 30px;
+					width: 230px;
+					font: 30px Podkova;
+					
+					&:hover {
+						background-color: #F1FF1E;
 					}
+					
+					&:active {
+						background-color: #D0DB29; 
+					}
+				}
+				
+					form input[type=submit] {
+						border-left: 0;
+						margin: 0;
+						width: 40px;
+						text-indent: -9999em;
+						background-position: right center;
+					}
+			
+				input[type=number] {
+					border: 3px solid @wrapperBorder;
+					border-right: 0;
+					display: inline-block;
+					float: left;
+					width: 150px;
+					margin-left: 5px;
+					padding-left: 30px;
+					text-align: center;
+					font: 50px Podkova;
 					
 					&::-webkit-input-placeholder {
 						color: #21c770;
+						text-align: center;
 					}
+					
+					&:-moz-placeholder {
+						color: #21c770;
+						text-align: center;
+					}
+					
+					&::-webkit-outer-spin-button,
+					&::-webkit-inner-spin-button {
+					    /* display: none; <- Crashes Chrome on hover */
+					    -webkit-appearance: none;
+					    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+					}
+				}
+				
+				label {
+					font-size: 50px;
+					left: 35px;
+					top: -8px;
+					margin-left: -10px;
+					float: left;
+					position: relative;
 				}
 			
 			h2 {
@@ -311,6 +389,43 @@ nav {
 #contact {
 	background-color: @contactBG;
 	background-image: url(@textureURL);	
+	
+	input, 
+	textarea {
+		border: 3px solid @wrapperBorder;
+		font: 20px Podkova;
+		margin: 10px 0;
+		max-width: 410px;
+		padding: 10px;
+		width: 410px;
+		
+		&::-webkit-input-placeholder { 
+			color: @contactBG;
+		}
+		
+		&:-moz-placeholder {
+			color: @contactBG;
+		}
+	}
+	
+	input[type=submit] {
+		display: inline-block;
+		background: url('../img/submit-arrow.png') no-repeat right center @submitBG;
+		border: 3px solid @wrapperBorder;
+		color: @submitColor;
+		margin: 10px 4px 0 0;
+		float: right;
+		width: 230px;
+		font: 30px Podkova;
+		
+		&:hover {
+			background-color: @submitHover;
+		}
+		
+		&:active {
+			background-color: @submitActive; 
+		}
+	}
 }
 
 footer {
