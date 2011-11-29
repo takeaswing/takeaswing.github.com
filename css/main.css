@@ -1,9 +1,5 @@
 /* @group Base Styles */
 /* @group Colors */
-g {
-  /* N/A; used to get Espresso to list classes correctly */
-
-}
 /* @end */
 h1,
 h2,
@@ -169,6 +165,28 @@ nav .active a {
   background-color: #28ce77;
   background-image: url('../img/texture.png'), url('../img/we-partners-ribbon.png');
 }
+#we a.button {
+  display: block;
+  background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
+  border: 3px solid #0a361f;
+  color: #869800;
+  cursor: pointer;
+  height: 44px;
+  margin: 0 auto 0 100px;
+  float: left;
+  font: 30px Podkova;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 30px 0 10px;
+  width: 190px;
+  vertical-align: middle;
+}
+#we a.button:hover {
+  background-color: #F1FF1E;
+}
+#we a.button:active {
+  background-color: #D0DB29;
+}
 #partners {
   background-color: #4a976f;
   background-image: url('../img/texture.png'), url('../img/partners-team-ribbon.png');
@@ -202,17 +220,13 @@ nav .active a {
   width: 754px;
   margin: 20px 90px;
   padding: 0;
-  background: url('../img/eventer-arrow.png') no-repeat 488px center, url('../img/eventer-bg.png') repeat-y left;
+  background: url('../img/eventer-glow.png') repeat-x left top, url('../img/eventer-arrow.png') no-repeat 488px center, url('../img/eventer-bg.png') repeat-y left;
   border: 3px solid #0a361f;
   height: auto;
 }
 .eventer .main {
   float: left;
   width: 448px;
-  /*				background: @eventerMainBG;*/
-
-  /*				border-right: 1px solid @wrapperBorder;*/
-
   padding: 20px;
   height: auto;
 }
@@ -229,27 +243,33 @@ nav .active a {
 .eventer aside p {
   text-align: center;
 }
-.eventer input[type=submit] {
+.eventer input[type=submit], .eventer a.button {
   display: inline-block;
   background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
   border: 3px solid #0a361f;
   color: #869800;
-  height: 59px;
+  cursor: pointer;
+  height: 44px;
   margin: 0 0 0 15px;
   float: left;
-  padding-right: 30px;
-  width: 230px;
   font: 30px Podkova;
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 30px 0 10px;
+  width: 190px;
+  vertical-align: middle;
 }
-.eventer input[type=submit]:hover {
+.eventer input[type=submit]:hover, .eventer a.button:hover {
   background-color: #F1FF1E;
 }
-.eventer input[type=submit]:active {
+.eventer input[type=submit]:active, .eventer a.button:active {
   background-color: #D0DB29;
 }
 .eventer form input[type=submit] {
   border-left: 0;
   margin: 0;
+  height: 59px;
+  padding: 0 30px 0 0;
   width: 40px;
   text-indent: -9999em;
   background-position: right center;
@@ -325,6 +345,11 @@ nav .active a {
 }
 #contact input[type=submit]:active {
   background-color: #d0db29;
+}
+address {
+  font-style: normal;
+  font-size: 20px;
+  padding-top: 20px;
 }
 footer {
   padding: 10px;

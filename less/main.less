@@ -32,8 +32,7 @@
 @submitActive: #D0DB29;
 @submitHover: #F1FF1E;
 
-g {
-	/* N/A; used to get Espresso to list classes correctly */
+body {
 }
 
 /* @end */
@@ -239,8 +238,34 @@ nav {
 #we {
 	background-color: @weBG;
 	background-image: url(@textureURL), url('../img/we-partners-ribbon.png');
+	
+	a.button {
+		display: block;
+		background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
+		border: 3px solid @wrapperBorder;
+		color: #869800;
+		cursor: pointer;
+		height: 44px;
+		margin: 0 auto 0 100px;
+		float: left;
+		font: 30px Podkova;
+		text-align: center;
+		text-decoration: none;
+		padding: 15px 30px 0 10px;
+		width: 190px;
+		vertical-align: middle;
+		
+		&:hover {
+			background-color: #F1FF1E;
+		}
+		
+		&:active {
+			background-color: #D0DB29; 
+		}
+	}
 }
 
+	
 #partners {
 	background-color: @partnersBG;
 	background-image: url(@textureURL), url('../img/partners-team-ribbon.png');	
@@ -284,7 +309,7 @@ nav {
 			width: 754px;
 			margin: 20px 90px;
 			padding: 0;
-			background: url('../img/eventer-arrow.png') no-repeat 488px center, url('../img/eventer-bg.png') repeat-y left;
+			background: url('../img/eventer-glow.png') repeat-x left top, url('../img/eventer-arrow.png') no-repeat 488px center, url('../img/eventer-bg.png') repeat-y left;
 			border: 3px solid @wrapperBorder;
 			height: auto;
 		}
@@ -292,8 +317,6 @@ nav {
 			.main {
 				float: left;
 				width: 448px;
-/*				background: @eventerMainBG;*/
-/*				border-right: 1px solid @wrapperBorder;*/
 				padding: 20px;
 				height: auto;
 			}
@@ -314,17 +337,22 @@ nav {
 				}
 			}
 					
-				input[type=submit] {
+				input[type=submit],
+				a.button {
 					display: inline-block;
 					background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
 					border: 3px solid @wrapperBorder;
 					color: #869800;
-					height: 59px;
+					cursor: pointer;
+					height: 44px;
 					margin: 0 0 0 15px;
 					float: left;
-					padding-right: 30px;
-					width: 230px;
 					font: 30px Podkova;
+					text-align: center;
+					text-decoration: none;
+					padding: 15px 30px 0 10px;
+					width: 190px;
+					vertical-align: middle;
 					
 					&:hover {
 						background-color: #F1FF1E;
@@ -338,6 +366,8 @@ nav {
 					form input[type=submit] {
 						border-left: 0;
 						margin: 0;
+						height: 59px;
+						padding: 0 30px 0 0;
 						width: 40px;
 						text-indent: -9999em;
 						background-position: right center;
@@ -427,6 +457,12 @@ nav {
 		}
 	}
 }
+
+	address {
+		font-style: normal;
+		font-size: 20px;
+		padding-top: 20px;
+	}
 
 footer {
 	padding: 10px;
