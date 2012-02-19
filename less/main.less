@@ -421,7 +421,8 @@ nav {
 	background-image: url(@textureURL);	
 	
 	input, 
-	textarea {
+	textarea,
+	a.button {
 		border: 3px solid @wrapperBorder;
 		font: 20px Podkova;
 		margin: 10px 0;
@@ -438,13 +439,13 @@ nav {
 		}
 	}
 	
-	input[type=submit] {
+	a.button {
 		display: inline-block;
 		background: url('../img/submit-arrow.png') no-repeat right center @submitBG;
 		border: 3px solid @wrapperBorder;
 		color: @submitColor;
 		margin: 10px 4px 0 0;
-		float: right;
+		text-decoration: none;
 		width: 230px;
 		font: 30px Podkova;
 		

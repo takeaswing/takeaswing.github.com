@@ -316,7 +316,7 @@ nav .active a {
   background-color: #28ce77;
   background-image: url('../img/texture.png');
 }
-#contact input, #contact textarea {
+#contact input, #contact textarea, #contact a.button {
   border: 3px solid #0a361f;
   font: 20px Podkova;
   margin: 10px 0;
@@ -324,26 +324,26 @@ nav .active a {
   padding: 10px;
   width: 410px;
 }
-#contact input::-webkit-input-placeholder, #contact textarea::-webkit-input-placeholder {
+#contact input::-webkit-input-placeholder, #contact textarea::-webkit-input-placeholder, #contact a.button::-webkit-input-placeholder {
   color: #28ce77;
 }
-#contact input:-moz-placeholder, #contact textarea:-moz-placeholder {
+#contact input:-moz-placeholder, #contact textarea:-moz-placeholder, #contact a.button:-moz-placeholder {
   color: #28ce77;
 }
-#contact input[type=submit] {
+#contact a.button {
   display: inline-block;
   background: url('../img/submit-arrow.png') no-repeat right center #e3f01d;
   border: 3px solid #0a361f;
   color: #869800;
   margin: 10px 4px 0 0;
-  float: right;
+  text-decoration: none;
   width: 230px;
   font: 30px Podkova;
 }
-#contact input[type=submit]:hover {
+#contact a.button:hover {
   background-color: #f1ff1e;
 }
-#contact input[type=submit]:active {
+#contact a.button:active {
   background-color: #d0db29;
 }
 address {
